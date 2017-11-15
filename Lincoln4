@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+ 
+<head>
+<meta charset="utf-8">
+<title>How to Make a JavaScript Image Rollover</title>
+ 
+<!--JavaScript code goes here.-->
+<script language="javascript">
+        function MouseRollover(MyImage) {
+         MyImage.src = "bully1.jpg";
+    }
+        function MouseOut(MyImage) {
+                MyImage.src = "bully.jpg";
+    }
+</script>
+</head>
+ 
+<body>
+ 
+<div align="center">
+ 
+<!--The rollover image displays here.-->
+<img src="bully.jpg" boarder="0px" width="100px" height="90px" 
+onMouseOver="MouseRollover(this)" 
+onMouseOut="MouseOut(this)" />
+</div>
+ 
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+  <img src="../Downloads/Rotating_earth_(large).gif" width="300" height="300" alt=""> 
+
+</head>
+<body>
+
+  <canvas id="canvas"></canvas>
+  <script>
+    var canvas = document.getElementById("canvas");
+    var processing = new Processing(canvas, function(processing) {
+        processing.size(1000, 1000);
+        processing.background(0xFFF);  
+        var mouseIsPressed = false;
+        processing.mousePressed = function () { mouseIsPressed = true; };
+        processing.mouseReleased = function () { mouseIsPressed = false; };
+
+        var keyIsPressed = false;
+        processing.keyPressed = function () { keyIsPressed = true; };
+        processing.keyReleased = function () { keyIsPressed = false; };
+
+        function getImage(s) {
+            var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
+            processing.externals.sketch.imageCache.add(url);
+            return processing.loadImage(url);
+        }
+
+        // use degrees rather than radians in rotate function
+        var rotateFn = processing.rotate;
+        processing.rotate = function (angle) {
+            rotateFn(processing.radians(angle));
+        };
+ 
+        with (processing) {
+function getImage(s) {
+         var url = "bully.jpg";
+         processing.externals.sketch.imageCache.add(url);
+        return processing.loadImage(url);
+      }      
+ function getImage(s) {
+         var url = "bully1.jpg";
+         processing.externals.sketch.imageCache.add(url);
+        return processing.loadImage(url);
+      }      
+     noStroke ();
+var Xpos = (400);
+
+var speed = (5);
+var notXpos = (-400);
+draw = function() {
+    
+
+background(70, 184, 250);
+fill(255, 0, 0);
+
+notXpos = notXpos + 0.5;
+Xpos = Xpos - 0.5;
+fill(13, 255, 0);
+rect ( -8, 336, 455, 99);
+fill(242, 250, 0);
+ellipse(78, 77, 150, 150);
+fill(148, 87, 16);
+rect( 201, 110, 33, 226);
+fill(7, 138, 18);
+ellipse(224, 99, 200, 78);
+ellipse(257, 141, 100, 100);
+ellipse(193, 143, 93, 50);
+ellipse( 200, 64, 90, 30);
+fill(0, 0, 0);
+image(getImage("bully1"), Xpos, 264, 75, 80);
+image(getImage("bully"), notXpos, 264, 75, 80);
+ellipse(Xpos + 30, 347, 75, 20);
+ellipse(notXpos + 30, 347, 75, 20);
+// MyImage.src = "12pointbuck.jpg";
+//<img src="bully.jpg" width="32" height="24" alt="">
+};
+            // INSERT YOUR KHAN ACADEMY PROGRAM HERE
+
+
+        }
+        if (typeof draw !== 'undefined') processing.draw = draw;
+    });
+  </script>
+</body>
+</html>
